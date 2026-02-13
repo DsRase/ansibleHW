@@ -1,0 +1,28 @@
+---
+- name: Configure nginx local
+  hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    nginx_port: 8080
+    nginx_config_path: ./nginx/nginx.conf
+
+  tasks:
+    - name: Ensure nginx config file exists with correct permissions
+      ansible.builtin.file:
+        path: "{{ nginx_config_path }}"
+        state: touch
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Set nginx port
+      nginx_port:
+        port: "{{ nginx_port }}"
+        config_path: "{{ nginx_config_path }}"
+
+  handlers:
+    - name: Restart Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
