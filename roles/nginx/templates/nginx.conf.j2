@@ -1,6 +1,4 @@
-events {}
-http {
-  server {
+server {
     listen 80;
     location /files {
       alias /usr/share/nginx/html/files/;
@@ -13,5 +11,4 @@ http {
       return 404 'Files location: http://localhost:8080/files/';
       add_header Content-Type text/plain;
     }
-  }
-} [web:12][web:16][web:18]
+}

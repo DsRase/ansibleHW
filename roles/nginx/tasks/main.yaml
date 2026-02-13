@@ -1,28 +1,28 @@
 ---
 - name: Install docker and docker-compose
-  apt:
+  pacman:
     name:
-      - docker.io
+      - docker
       - docker-compose
     state: present
-    update_cache: yes [web:20]
+    update_cache: yes
 
 - name: Create file dir
   file:
     path: /opt/files
     state: directory
-    mode: '0755' [web:19]
+    mode: '0755'
 
 - name: Create text files
   copy:
     content: "Text file {{ item }} by Ansible\n"
     dest: "/opt/files/test{{ item }}.txt"
-  loop: [1, 2, 3] [web:3]
+  loop: [1, 2, 3]
 
 - name: Copy nginx.conf
   template:
     src: nginx.conf.j2
-    dest: /opt/nginx.conf [web:12]
+    dest: /opt/nginx.conf
 
 - name: Run nginx docker
   docker_container:
@@ -34,4 +34,4 @@
       - "8080:80"
     volumes:
       - /opt/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - /opt/files:/usr/share/nginx/html/files:ro [web:17][web:10]
+      - /opt/files:/usr/share/nginx/html/files:ro
