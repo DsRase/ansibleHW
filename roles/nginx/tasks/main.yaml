@@ -1,0 +1,37 @@
+---
+- name: Install docker and docker-compose
+  apt:
+    name:
+      - docker.io
+      - docker-compose
+    state: present
+    update_cache: yes [web:20]
+
+- name: Create file dir
+  file:
+    path: /opt/files
+    state: directory
+    mode: '0755' [web:19]
+
+- name: Create text files
+  copy:
+    content: "Text file {{ item }} by Ansible\n"
+    dest: "/opt/files/test{{ item }}.txt"
+  loop: [1, 2, 3] [web:3]
+
+- name: Copy nginx.conf
+  template:
+    src: nginx.conf.j2
+    dest: /opt/nginx.conf [web:12]
+
+- name: Run nginx docker
+  docker_container:
+    name: nginx-files
+    image: nginx:alpine
+    state: started
+    restart_policy: always
+    ports:
+      - "8080:80"
+    volumes:
+      - /opt/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - /opt/files:/usr/share/nginx/html/files:ro [web:17][web:10]

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8a4dd588-1113-4eb7-923a-c511212aaf57" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/ansible.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deploy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hosts.ini" beforeDir="false" afterPath="$PROJECT_DIR$/hosts.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/nginx/tasks/main.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/nginx/tasks/main.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/nginx/templates/nginx.conf.j2" beforeDir="false" afterPath="$PROJECT_DIR$/roles/nginx/templates/nginx.conf.j2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +24,9 @@
   "associatedIndex": 8
 }]]></component>
   <component name="ProjectId" id="39cpiQzdtbZBB6DgnG54MzHDTts" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
